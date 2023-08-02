@@ -1,21 +1,21 @@
 @font-face {
     font-family: 'ShinGo Pro';
-    src: url('../ToDoList/fonts/AOTFShinGoProRegular.woff');
+    src: url('../fonts/AOTFShinGoProRegular.woff');
 }
 @font-face {
     font-family: 'ShinGo Pro';
-    src: url('../ToDoList/fonts/AOTFShinGoProBold.woff');
+    src: url('../fonts/AOTFShinGoProBold.woff');
     font-style: bold;
     font-weight: 800;
 }
 @font-face {
     font-family: 'ShinGo Pro';
-    src: url('../ToDoList/fonts/AOTFShinGoProLight.woff');
+    src: url('../fonts/AOTFShinGoProLight.woff');
     font-weight: 200;
 }
 @font-face {
     font-family: 'ShinGo Pro';
-    src: url('../ToDoList/fonts/AOTFShinGoProMedium.woff');
+    src: url('../fonts/AOTFShinGoProMedium.woff');
     font-weight: 600;
 }
 body {
