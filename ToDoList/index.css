@@ -19,7 +19,7 @@
     font-weight: 600;
 }
 body {
-    font-family: 'ShinGo Pro', Fallback, sans-serif;
+    font-family: 'ShinGo Pro', Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 20px;
     background-color: #f7f7f7;
@@ -31,13 +31,13 @@ h1, h2, h3, h4, h5, h6, p {
 button {
     background: none;
     border: none;
-    font-family: 'ShinGo Pro', Fallback, sans-serif;
+    font-family: 'ShinGo Pro', Arial, Helvetica, sans-serif;
     cursor: url('./wiipointer.png'), auto;
 }
 input {
     background: none;
     border: none;
-    font-family: 'ShinGo Pro', Fallback, sans-serif;
+    font-family: 'ShinGo Pro', Arial, Helvetica, sans-serif;
     cursor: url('./wiipointer.png'), auto;
 }
 
