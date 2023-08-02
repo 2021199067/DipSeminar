@@ -21,7 +21,7 @@ const addTodo = (label) => {
 const editTodo = (targetId) => {
     const newTodoList = todoList.map((todo) => {
         if(todo.id === targetId) {
-            return {...todo, midEdit: true}
+            return {...todo, midEdit: !todo.midEdit}
         } 
         return {...todo, midEdit: false}
     });
@@ -124,6 +124,7 @@ const insertTodo = ( editing, todo ) => {
     cancelButton.className = "todo-action";
     cancelButton.innerText = "🛇";
     cancelButton.onclick = () => {
+        if (editing) editTodo(todo.id);
         renderTodoList();
         return;
     }
