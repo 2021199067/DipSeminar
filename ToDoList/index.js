@@ -69,7 +69,6 @@ const renderTodo = ( todo ) => {
     completeButton.style = "color: #34BEED";
     
     if(todo.completed) {
-        completeButton.innerText = "☓";
         todoLabel.style = "text-decoration: line-through; color: #d9d9d9";
         completeButton.classList.add("inactive-action");
     } 
