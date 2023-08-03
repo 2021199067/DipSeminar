@@ -118,7 +118,7 @@ input {
     color: #d9d9d9;
 }
 .inactive-action:hover {
-    box-shadow: 0 0 3px #e9e9e9, #dddddd 0px 0px 6px 1px inset;
+    box-shadow: 0 0 3px #e9e9e9, #e2e2e2 0px 0px 6px 1px inset;
     border: 1px solid #d9d9d9;
 }
 .action-confirm {
