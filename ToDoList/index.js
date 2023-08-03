@@ -125,11 +125,13 @@ const getTodoInput = ( editing, todo ) => {
     confirmButton.classList.add("todo-action", "action-confirm");
     confirmButton.innerText = "Enter";
     todoInput.value = editing ? todo.label : "New Task";
+    
     confirmButton.onclick = () => { 
         if(editing) setLabel(todo.id, todoInput.value);
         else addTodo(todoInput.value);
         renderTodoList();
-    };
+    }
+    
     const cancelButton = document.createElement("button");
     cancelButton.className = "todo-action";
     cancelButton.innerText = "🛇";
@@ -137,7 +139,8 @@ const getTodoInput = ( editing, todo ) => {
         if (editing) editTodo(todo.id);
         renderTodoList();
         return;
-    };
+    }
+    
     const newTodoActionWrapper = document.createElement("div");
     newTodoActionWrapper.className = "todo-action-wrapper";
     newTodoActionWrapper.appendChild(confirmButton); 
