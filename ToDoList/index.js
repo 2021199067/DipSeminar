@@ -65,13 +65,15 @@ const renderTodo = ( todo ) => {
 
     const completeButton = document.createElement("button");
     completeButton.className = "todo-action";
-    completeButton.innerText = todo.completed ? "✓" : "☓";
     if(todo.completed) {
+        completeButton.innerText = "✓";
         todoLabel.style = "text-decoration: line-through; color: #d9d9d9";
         completeButton.classList.add("inactive-action");
     } else {
+        completeButton.innerText = "☓";
         completeButton.style = "color: #34BEED";
     }
+    
     completeButton.onclick = () => {
         completeTodo(todo.id);
         renderTodoList();
@@ -121,12 +123,12 @@ const insertTodo = ( editing, todo ) => {
     const confirmButton = document.createElement("button");
     confirmButton.classList.add("todo-action", "action-confirm");
     confirmButton.innerText = "Enter";
-    if(editing) {
-        todoInput.value = todo.label;
-        confirmButton.onclick = () => { setLabel(todo.id, todoInput.value), renderTodoList() });
-    } else { 
-        confirmButton.onclick = () => { addTodo(todoInput.value), renderTodoList() };
-    }
+    todoInput.value = editing ? todo.label : "New Task";
+    confirmButton.onclick = () => { 
+        if(editing) setLabel(todo.id, todoInput.value);
+        else addTodo(todoInput.value);
+        renderTodoList();
+    };
     const cancelButton = document.createElement("button");
     cancelButton.className = "todo-action";
     cancelButton.innerText = "🛇";
@@ -134,7 +136,7 @@ const insertTodo = ( editing, todo ) => {
         if (editing) editTodo(todo.id);
         renderTodoList();
         return;
-    }
+    };
     const newTodoActionWrapper = document.createElement("div");
     newTodoActionWrapper.className = "todo-action-wrapper";
     newTodoActionWrapper.appendChild(confirmButton); 
