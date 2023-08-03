@@ -81,6 +81,7 @@ input {
     color: #999;
     font-size: 18px;
     height: 24px;
+    vertical-align: top;
 }
 .todo-input:focus {
     outline: none;
