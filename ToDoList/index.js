@@ -55,7 +55,7 @@ const completeTodo = (targetId) => {
 
 const addButton = document.getElementById("add-action");
 addButton.onclick = () => {
-    insertTodo(false);
+    getTodoInput(false);
 };
 
 const renderTodo = ( todo ) => {
@@ -111,11 +111,11 @@ const renderTodo = ( todo ) => {
 
     if(todo.midEdit) {
         content.removeChild(todoWrapper);
-        insertTodo(true, todo);
+        getTodoInput(true, todo);
     };
 };
 
-const insertTodo = ( editing, todo ) => {
+const getTodoInput = ( editing, todo ) => {
     const todoInput = document.createElement("input");
     todoInput.setAttribute("type", "text");
     todoInput.className = "todo-input";
