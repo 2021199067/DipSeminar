@@ -109,14 +109,17 @@ input {
     box-shadow: 0 0 3px #e9e9e9, #d8f1fc 0px 0px 6px 1px inset;
     border: 1px solid #34BEED;
 }
+.complete {
+    color: #34BEED;
+}
 .inactive-action {
     background-color: #f7f7f7; 
     box-shadow: 0 0 3px #e9e9e9 inset; 
     color: #d9d9d9;
 }
 .inactive-action:hover {
-    box-shadow: 0 0 3px #e9e9e9, #b9b9b9 0px 0px 6px 1px inset;
-    border: 1px solid #b9b9b9;
+    box-shadow: 0 0 3px #e9e9e9, #d9d9d9 0px 0px 6px 1px inset;
+    border: 1px solid #d9d9d9;
 }
 .action-confirm {
     width: 78px;
