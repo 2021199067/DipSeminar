@@ -105,7 +105,8 @@ const renderTodo = ( todo ) => {
     content.appendChild(todoWrapper);
 
     if(todo.midEdit) {
-        (content.removeChild(todoWrapper), insertTodo(true, todo))
+        content.removeChild(todoWrapper);
+        insertTodo(true, todo);
     };
 };
 
