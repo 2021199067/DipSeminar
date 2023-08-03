@@ -113,7 +113,7 @@ const renderTodo = ( todo ) => {
     if(todo.midEdit) {
         content.removeChild(todoWrapper);
         getTodoInput(true, todo);
-    };
+    }
 };
 
 const getTodoInput = ( editing, todo ) => {
