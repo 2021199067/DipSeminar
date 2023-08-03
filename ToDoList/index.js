@@ -65,10 +65,13 @@ const renderTodo = ( todo ) => {
 
     const completeButton = document.createElement("button");
     completeButton.className = "todo-action";
-    completeButton.innerText = "✓";
-    todo.completed 
-        ? (todoLabel.style = "text-decoration: line-through; color: #d9d9d9", completeButton.style = "background-color: #f7f7f7; box-shadow: 0 0 3px #e9e9e9 inset; color: #d9d9d9;")
-        : (completeButton.style = "color: #34BEED");
+    completeButton.innerText = todo.completed ? "✓" : "☓";
+    if(todo.completed) {
+        todoLabel.style = "text-decoration: line-through; color: #d9d9d9";
+        completeButton.classList.add("inactive-action");
+    } else {
+        completeButton.style = "color: #34BEED";
+    }
     completeButton.onclick = () => {
         completeTodo(todo.id);
         renderTodoList();
@@ -118,9 +121,12 @@ const insertTodo = ( editing, todo ) => {
     const confirmButton = document.createElement("button");
     confirmButton.classList.add("todo-action", "action-confirm");
     confirmButton.innerText = "Enter";
-    editing 
-        ? (todoInput.value = todo.label, confirmButton.onclick = () => { setLabel(todo.id, todoInput.value), renderTodoList() })
-        : confirmButton.onclick = () => { addTodo(todoInput.value), renderTodoList() };
+    if(editing) {
+        todoInput.value = todo.label;
+        confirmButton.onclick = () => { setLabel(todo.id, todoInput.value), renderTodoList() });
+    } else { 
+        confirmButton.onclick = () => { addTodo(todoInput.value), renderTodoList() };
+    }
     const cancelButton = document.createElement("button");
     cancelButton.className = "todo-action";
     cancelButton.innerText = "🛇";
