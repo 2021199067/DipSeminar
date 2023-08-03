@@ -65,12 +65,13 @@ const renderTodo = ( todo ) => {
 
     const completeButton = document.createElement("button");
     completeButton.className = "todo-action";
+    
     if(todo.completed) {
-        completeButton.innerText = "✓";
+        completeButton.innerText = "☓";
         todoLabel.style = "text-decoration: line-through; color: #d9d9d9";
         completeButton.classList.add("inactive-action");
     } else {
-        completeButton.innerText = "☓";
+        completeButton.innerText = "✓";
         completeButton.style = "color: #34BEED";
     }
     
