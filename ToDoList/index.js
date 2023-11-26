@@ -102,13 +102,13 @@ const renderTodo = ( todo ) => {
     const todoWrapper = document.createElement("div");
     todoWrapper.className = "todo-wrapper";
     todoWrapper.appendChild(todoLabel); 
-    todoWrapper.addEventListener('mouseover', function () {
-        todoWrapper.appendChild(todoActionWrapper);
-    })
-    todoWrapper.addEventListener('mouseout', function () {
-        todoWrapper.removeChild(todoActionWrapper);
-    })
-    // todoWrapper.appendChild(todoActionWrapper);
+    // todoWrapper.addEventListener('mouseover', function () {
+    //     todoWrapper.appendChild(todoActionWrapper);
+    // })
+    // todoWrapper.addEventListener('mouseout', function () {
+    //     todoWrapper.removeChild(todoActionWrapper);
+    // })
+    todoWrapper.appendChild(todoActionWrapper);
 
     const content = document.getElementById("content");
     content.appendChild(todoWrapper);
