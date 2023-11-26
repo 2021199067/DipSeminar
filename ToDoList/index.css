@@ -74,6 +74,8 @@ input {
     font-size: 18px;
     line-height: 20px;
     height: 24px;
+    width: 520px;
+    text-align: left;
 }
 
 .todo-input {
@@ -91,7 +93,7 @@ input {
 .todo-action-wrapper {
     display: flex;
     justify-content: space-between;
-    width: 120px;
+    width: 80px;
 }
 
 .todo-action {
@@ -109,9 +111,6 @@ input {
     box-shadow: 0 0 3px #e9e9e9, #d8f1fc 0px 0px 6px 1px inset;
     border: 1px solid #34BEED;
 }
-.action-complete {
-    color: #34BEED;
-}
 .inactive-action {
     background-color: #f7f7f7; 
     box-shadow: 0 0 3px #e9e9e9 inset; 
@@ -122,7 +121,7 @@ input {
     border: 1px solid #d9d9d9;
 }
 .action-confirm {
-    width: 78px;
+    max-width: 78px;
     font-size: 12px;
 }
 
