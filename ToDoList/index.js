@@ -123,7 +123,7 @@ const renderTodo = ( todo ) => {
     }
 };
 
-const getTodoInput = ( todo, isNew ) => {
+const getTodoInput = ( todo ) => {
     const todoInput = document.createElement("input");
     todoInput.setAttribute("type", "text");
     todoInput.className = "todo-input";
@@ -143,9 +143,6 @@ const getTodoInput = ( todo, isNew ) => {
     cancelButton.innerText = "🛇";
     cancelButton.onclick = () => {
         editTodo(todo.id);
-        if(isNew) {
-            deleteTodo(todo.id);
-        }
         renderTodoList();
     }
     
