@@ -13,9 +13,11 @@ const addTodo = (label) => {
     const todo = { 
         id: new Date().getTime(), //current time
         label, //<=> label: label
-        completed: false 
+        completed: false, 
+        midEdit: false
     };
     todoList = [...todoList, todo];
+    return todo;
 }
 
 const editTodo = (targetId) => {
@@ -55,7 +57,9 @@ const completeTodo = (targetId) => {
 
 const addButton = document.getElementById("add-action");
 addButton.onclick = () => {
-    getTodoInput(false);
+    const newTodo = addTodo("New Task");
+    editTodo(newTodo.id);
+    renderTodoList();
 };
 
 const renderTodo = ( todo ) => {
@@ -115,11 +119,11 @@ const renderTodo = ( todo ) => {
 
     if(todo.midEdit) {
         content.removeChild(todoWrapper);
-        getTodoInput(true, todo);
+        getTodoInput(todo);
     }
 };
 
-const getTodoInput = ( editing, todo ) => {
+const getTodoInput = ( todo ) => {
     const todoInput = document.createElement("input");
     todoInput.setAttribute("type", "text");
     todoInput.className = "todo-input";
@@ -127,11 +131,10 @@ const getTodoInput = ( editing, todo ) => {
     const confirmButton = document.createElement("button");
     confirmButton.classList.add("todo-action", "action-confirm");
     confirmButton.innerText = "✓";
-    todoInput.value = editing ? todo.label : "New Task";
+    todoInput.value = todo.label;
     
     confirmButton.onclick = () => { 
-        if(editing) setLabel(todo.id, todoInput.value);
-        else addTodo(todoInput.value);
+        setLabel(todo.id, todoInput.value);
         renderTodoList();
     }
     
