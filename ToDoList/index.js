@@ -59,20 +59,20 @@ addButton.onclick = () => {
 };
 
 const renderTodo = ( todo ) => {
-    const todoLabel = document.createElement("p");
-    todoLabel.className = "todo-label";
+    const todoLabel = document.createElement("button");
+    todoLabel.classList.add("todo-label", "action-complete");
     todoLabel.innerText = todo.label;
 
-    const completeButton = document.createElement("button");
-    completeButton.classList.add("todo-action", "action-complete");
-    completeButton.innerText = "✓";
+    // const completeButton = document.createElement("button");
+    // completeButton.classList.add("todo-action");
+    // completeButton.innerText = "✓";
     
     if(todo.completed) {
         todoLabel.style = "text-decoration: line-through; color: #d9d9d9";
-        completeButton.classList.add("inactive-action");
+        // completeButton.classList.add("inactive-action");
     } 
     
-    completeButton.onclick = () => {
+    todoLabel.onclick = () => {
         completeTodo(todo.id);
         renderTodoList();
     };
@@ -95,14 +95,20 @@ const renderTodo = ( todo ) => {
 
     const todoActionWrapper = document.createElement("div");
     todoActionWrapper.className = "todo-action-wrapper";
-    todoActionWrapper.appendChild(completeButton);
+    // todoActionWrapper.appendChild(completeButton);
     todoActionWrapper.appendChild(editButton);
     todoActionWrapper.appendChild(deleteButton);
 
     const todoWrapper = document.createElement("div");
     todoWrapper.className = "todo-wrapper";
     todoWrapper.appendChild(todoLabel); 
-    todoWrapper.appendChild(todoActionWrapper);
+    todoWrapper.addEventListener('mouseover', function () {
+        todoWrapper.appendChild(todoActionWrapper);
+    })
+    todoWrapper.addEventListener('mouseout', function () {
+        todoWrapper.removeChild(todoActionWrapper);
+    })
+    // todoWrapper.appendChild(todoActionWrapper);
 
     const content = document.getElementById("content");
     content.appendChild(todoWrapper);
@@ -120,7 +126,7 @@ const getTodoInput = ( editing, todo ) => {
     
     const confirmButton = document.createElement("button");
     confirmButton.classList.add("todo-action", "action-confirm");
-    confirmButton.innerText = "Enter";
+    confirmButton.innerText = "✓";
     todoInput.value = editing ? todo.label : "New Task";
     
     confirmButton.onclick = () => { 
